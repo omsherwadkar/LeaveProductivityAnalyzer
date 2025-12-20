@@ -1,16 +1,19 @@
+import { useState } from "react";
 import Upload from "./Upload";
 import Dashboard from "./Dashboard";
 
-export default function App() {
+function App() {
+  const [hasUploaded, setHasUploaded] = useState(false);
+
   return (
-    <div style={{ padding: "20px" }}>
+    <div>
       <h1>Leave & Productivity Analyzer</h1>
 
-      <Upload />
+      <Upload onUploadSuccess={() => setHasUploaded(true)} />
 
-      <hr />
-
-      <Dashboard />
+      {hasUploaded && <Dashboard />}
     </div>
   );
 }
+
+export default App;
