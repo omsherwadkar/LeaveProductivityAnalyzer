@@ -30,7 +30,7 @@ export default function Upload({ onUploadSuccess }) {
 
       if (response.ok) {
         onUploadSuccess();
-        setStatus(result.message || "Upload completed");
+        setStatus(result.message || "Upload successful");
       } else {
         setStatus(result.error || "Upload failed");
       }
