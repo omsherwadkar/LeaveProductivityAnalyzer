@@ -100,7 +100,7 @@ This project was developed as part of the \*\*NMIMS Intern Technical Assignment 
 
 \*\*Frontend (Vercel):\*\*  
 
-&nbsp;\_Add your Vercel URL here\_
+&nbsp;https://leaveproductivityanalyzer.vercel.app/
 
 
 
@@ -176,4 +176,9 @@ npm install
 npm run dev
 
 frontend runs on "http://localhost:5173
+
+\*\*Environment Variables :
+VITE\_BACKEND\_URL=http://localhost:5000
+
+
 

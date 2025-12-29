@@ -29,7 +29,7 @@ export default function Upload({ onUploadSuccess }) {
       const result = await response.json();
 
       if (response.ok) {
-        onUploadSuccess(); // ✅ show dashboard
+        onUploadSuccess();
         setStatus(result.message || "Upload completed");
       } else {
         setStatus(result.error || "Upload failed");
@@ -41,13 +41,63 @@ export default function Upload({ onUploadSuccess }) {
   };
 
   return (
-    <div>
-      <h2>Upload Attendance Excel</h2>
-      <input type="file" accept=".xlsx" onChange={handleFileChange} />
-      <br />
-      <br />
-      <button onClick={handleUpload}>Upload</button>
-      <p>{status}</p>
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#f4f6f8"
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: "#ffffff",
+          padding: "30px",
+          borderRadius: "8px",
+          width: "420px",
+          boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+          textAlign: "center"
+        }}
+      >
+        <h2 style={{ marginBottom: "10px" }}>
+          Leave & Productivity Analyzer
+        </h2>
+
+        <p style={{ fontSize: "14px", color: "#555", marginBottom: "20px" }}>
+          Upload an Excel attendance sheet to analyze worked hours, leaves,
+          and productivity.
+        </p>
+
+        <input
+          type="file"
+          accept=".xlsx"
+          onChange={handleFileChange}
+          style={{ marginBottom: "15px", width: "100%" }}
+        />
+
+        <button
+          onClick={handleUpload}
+          style={{
+            width: "100%",
+            padding: "10px",
+            backgroundColor: "#2563eb",
+            color: "#ffffff",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+            fontSize: "15px"
+          }}
+        >
+          Upload Excel File
+        </button>
+
+        {status && (
+          <p style={{ marginTop: "15px", fontSize: "14px", color: "#333" }}>
+            {status}
+          </p>
+        )}
+      </div>
     </div>
   );
 }
